@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
+  <title></title>
+  <meta http-equiv="Expires" content="Mon, 26 Jul 1997 05:00:00 GMT">
+  <meta http-equiv="Last-Modified" content="Sat, 10 Nov 1997 09:08:07 GMT">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <!-- 百度地图授权地址 -->
+  <script type="text/javascript"
+    src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=cXwaxIpiADyUneDe62hZoLFhGfsgcRTL"></script>
+  <style>
+    #app {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      box-sizing: border-box;
+    }
+
+    /* 适配苹果底部安全区 */
+    @supports (bottom: env(safe-area-inset-bottom)) {
+      #app {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
