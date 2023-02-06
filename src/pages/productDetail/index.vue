@@ -144,7 +144,18 @@ export default {
     });
 
     const back = () => {
-      router.back();
+      if(window.history.length<=1){//判断有没有上级路由；
+         //这个可以关闭安卓系统的手机
+         document.addEventListener("WeixinJSBridgeReady", function() {
+                WeixinJSBridge.call("closeWindow");
+            },
+            false
+        );
+        //这个可以关闭ios系统的手机
+        WeixinJSBridge.call("closeWindow");
+      }else{
+        router.back(); //返回上级路由
+      }
     };
 
     const matchIcon = (item) => {
