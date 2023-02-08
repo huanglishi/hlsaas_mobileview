@@ -3,7 +3,7 @@
     class="wrapper"
     ref="wrapperDom"
     :style="{
-      height: `${pxToVw('height', datas.height)}vh`,
+      minHeight: `${pxToVw('height', datas.height)}vh`,
       ...containerBg(datas),
     }"
   >
@@ -16,7 +16,7 @@
           :style="{
             top: `${pxToVw('height', item.datas.top)}vh`,
             left: `${pxToVw('width', item.datas.left)}vw`,
-            height: `${pxToVw('height', item.datas.height)}vh`,
+            minHeight: `${pxToVw('height', item.datas.height)}vh`,
             width: `${pxToVw('width', item.datas.width)}vw`,
             color: item.datas.color,
             'font-size': `${item.datas.fontSize}px`,
@@ -153,7 +153,7 @@ export default {
 <style lang="less" scoped>
 .wrapper {
   position: relative;
-  overflow: hidden;
+  //overflow: hidden;
   user-select: none;
   &.openMask {
     &::before {

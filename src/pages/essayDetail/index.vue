@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { siteData } from "@/store/index";
-import { reactive } from "vue";
+import { reactive ,nextTick} from "vue";
 import http from "@/axios";
 import { useRoute, useRouter } from "vue-router";
 import day from "dayjs";
@@ -34,7 +34,17 @@ export default {
     const { essayId } = route.query;
     if (essayId) {
       http("getArtic", { id: essayId }).then((res) => {
-        essayContent.value = res.data.result;
+        if(res.data.result.type==1){
+          // window.location.href = res.data.result.link
+          // 跳转到user.html 页面并清除当前页面的history记录
+          let backlen = window.history.length - 2;
+		    	window.history.go(- backlen);
+          nextTick(()=>{
+            window.location.href = res.data.result.link
+          })
+        }else{
+          essayContent.value = res.data.result;
+        }
       });
     }
 

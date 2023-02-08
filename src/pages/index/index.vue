@@ -247,6 +247,7 @@ export default {
   .content {
     width: 375px;
     height: 100%;
+    overflow: hidden;
     overflow-y: scroll;
     scroll-behavior: smooth;
     background-repeat: no-repeat;
